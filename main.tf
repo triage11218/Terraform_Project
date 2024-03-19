@@ -3,12 +3,12 @@ provider "aws" {
 }
 
 resource "aws_instance" "RHEL-VM-Sever" {
-  count         = 1
+  count         = 3
   ami           = "ami-0fe630eb857a6ec83"
   instance_type = "t2.medium"
   key_name      = "Triage_KeyPair"
   tags = {
-    Name = "RHEL-Server"
+    Name = "RHEL-VM-Server"
   }
   root_block_device {
     volume_size = 12 
