@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "RHEL-VM-Sever" {
-  count         = 3
+  count         = 1
   ami           = "ami-0fe630eb857a6ec83"
   instance_type = "t2.medium"
   key_name      = "Triage_KeyPair"
@@ -16,4 +16,14 @@ resource "aws_instance" "RHEL-VM-Sever" {
     encrypted   = true
   }
 
+}
+
+resource "aws_instance" "Ubuntu-Linux" {
+  count         = 1
+  ami           = "ami-07d9b9ddc6cd8dd30"
+  instance_type = "t2.micro"
+  key_name      = "Triage_KeyPair"
+  tags = {
+    Name = "Ubuntu-Server"
+  }
 }
